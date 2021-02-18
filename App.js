@@ -6,6 +6,14 @@ import { Provider } from "react-redux";
 
 import appStore from "./store/Store";
 import Navigation from "./AppNavigation/Navigation";
+import { init } from "./helper/db";
+
+init()
+  .then(() => console.log("initialized database"))
+  .catch((er) => {
+    console.log("database not initialized");
+    console.log(er);
+  });
 
 const fonts = async () => {
   await Font.loadAsync({
