@@ -48,6 +48,9 @@ const HomeStack = () => {
           headerLeft: () => {
             return <HeaderLeft />;
           },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         }}
       />
       <stack.Screen
@@ -56,6 +59,9 @@ const HomeStack = () => {
         options={(props) => ({
           headerTitleAlign: "center",
           headerTitle: props.route.params.itemName,
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         })}
       />
       <stack.Screen
@@ -64,6 +70,9 @@ const HomeStack = () => {
         options={(props) => ({
           headerTitleAlign: "center",
           headerTitle: props.route.params.itemName,
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         })}
       />
       <stack.Screen
@@ -71,6 +80,9 @@ const HomeStack = () => {
         component={Details}
         options={{
           headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         }}
       />
     </stack.Navigator>
@@ -88,6 +100,9 @@ const CartStack = () => {
           headerLeft: () => {
             return <HeaderLeft />;
           },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         }}
       />
       <stack.Screen
@@ -97,6 +112,9 @@ const CartStack = () => {
           headerTitleAlign: "center",
           headerLeft: () => {
             return <HeaderLeft />;
+          },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
           },
         }}
       />
@@ -115,6 +133,9 @@ const AboutStack = () => {
           headerLeft: () => {
             return <HeaderLeft />;
           },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         }}
       />
     </stack.Navigator>
@@ -131,6 +152,9 @@ const CustomerServiceStack = () => {
           headerTitleAlign: "center",
           headerLeft: () => {
             return <HeaderLeft />;
+          },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
           },
         }}
       />
@@ -150,6 +174,9 @@ const PrivacyPolicyStack = () => {
           headerLeft: () => {
             return <HeaderLeft />;
           },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
+          },
         }}
       />
     </stack.Navigator>
@@ -166,6 +193,9 @@ const ContactStack = () => {
           headerTitleAlign: "center",
           headerLeft: () => {
             return <HeaderLeft />;
+          },
+          headerStyle: {
+            backgroundColor: "#ccf2f4",
           },
         }}
       />

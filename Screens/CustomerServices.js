@@ -115,6 +115,7 @@ const CustomerServices = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: "#f4f9f9",
     flex: 1,
     justifyContent: "center",
     margin: 10,
