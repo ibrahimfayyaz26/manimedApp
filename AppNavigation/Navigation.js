@@ -9,6 +9,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import Home from "../Screens/Home";
 import Categories from "../Screens/Categories";
+import SubCategories from "../Screens/SubCategories";
 import Details from "../Screens/Details";
 import Cart from "../Screens/Cart";
 import About from "../Screens/About";
@@ -52,6 +53,14 @@ const HomeStack = () => {
       <stack.Screen
         name="Categories"
         component={Categories}
+        options={(props) => ({
+          headerTitleAlign: "center",
+          headerTitle: props.route.params.itemName,
+        })}
+      />
+      <stack.Screen
+        name="SubCategories"
+        component={SubCategories}
         options={(props) => ({
           headerTitleAlign: "center",
           headerTitle: props.route.params.itemName,
