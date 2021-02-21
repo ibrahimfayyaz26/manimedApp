@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
 import { CATEGORIES } from "../data/dummyData";
 import Header from "../components/HeaderSuggestion";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as Action from "../store/Action/Action";
 import Cat from "../components/SubCategories";
 
 const Categories = (props) => {
   const name = props.route.params.ItemId;
-  console.log(name);
   const data = useSelector((state) => state.Categories[name]);
   const unique = [
     ...data
       .reduce((map, obj) => map.set(obj.subCategory, obj), new Map())
       .values(),
   ];
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
@@ -21,17 +22,27 @@ const Categories = (props) => {
           <Text style={{ fontFamily: "Bold", fontSize: 20 }}>Trending:</Text>
         </View>
         <FlatList
-          data={CATEGORIES}
-          keyExtractor={(item) => item.id}
+          data={unique}
+          keyExtractor={(item) => item._id}
           horizontal
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => {
             return (
               <Header
                 code={item.code}
-                imageUri={item.imgUrl}
-                title={item.title}
-                press={() => props.navigation.navigate("Details")}
+                imageUri={item.imageUri}
+                title={item.name}
+                press={() =>
+                  props.navigation.navigate("Details", {
+                    itemName: item.name,
+                    itemSub: item.subCategory,
+                    itemId: item.subId,
+                    itemImage: item.imageUri,
+                    itemCode: item.code,
+                    itemSize: item.size,
+                    itemStuff: item.stuff,
+                  })
+                }
               />
             );
           }}
@@ -43,11 +54,11 @@ const Categories = (props) => {
           renderItem={({ item }) => {
             return (
               <Cat
-                press={() =>
+                press={() => {
                   props.navigation.navigate("SubProducts", {
                     itemName: item.subCategory,
-                  })
-                }
+                  });
+                }}
                 subCategories={item.subCategory}
               />
             );
