@@ -28,7 +28,8 @@ const HeaderSuggestion = (props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    margin: 10,
+    flex: 1,
+    margin: 5,
     marginLeft: 32,
     borderRadius: 20,
     shadowOpacity: 0.25,
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     height: 200,
     width: 330,
     flexDirection: "row",
+    marginBottom: 150,
   },
   imgContainer: {
     width: "65%",

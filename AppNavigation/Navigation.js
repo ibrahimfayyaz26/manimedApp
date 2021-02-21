@@ -9,13 +9,13 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import Home from "../Screens/Home";
 import Categories from "../Screens/Categories";
-import SubCategories from "../Screens/SubCategories";
 import Details from "../Screens/Details";
 import Cart from "../Screens/Cart";
 import About from "../Screens/About";
 import CustomerService from "../Screens/CustomerServices";
 import PrivacyPolicy from "../Screens/PrivacyPolicy";
 import Contact from "../Screens/Contact";
+import SubProducts from "../Screens/SubProducts";
 
 const stack = createStackNavigator();
 const tab = createBottomTabNavigator();
@@ -65,8 +65,8 @@ const HomeStack = () => {
         })}
       />
       <stack.Screen
-        name="SubCategories"
-        component={SubCategories}
+        name="SubProducts"
+        component={SubProducts}
         options={(props) => ({
           headerTitleAlign: "center",
           headerTitle: props.route.params.itemName,
@@ -78,12 +78,13 @@ const HomeStack = () => {
       <stack.Screen
         name="Details"
         component={Details}
-        options={{
+        options={(props) => ({
           headerTitleAlign: "center",
+          headerTitle: props.route.params.itemName,
           headerStyle: {
             backgroundColor: "#ccf2f4",
           },
-        }}
+        })}
       />
     </stack.Navigator>
   );

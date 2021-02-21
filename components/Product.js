@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-const SubCategories = () => {
+const Cart = () => {
   return (
     <View style={styles.container}>
-      <Text>SubCategories</Text>
+      <Text>Cart</Text>
     </View>
   );
 };
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SubCategories;
+export default Cart;
