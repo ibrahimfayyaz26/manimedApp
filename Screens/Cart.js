@@ -1,10 +1,31 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import * as Action from "../store/Action/CartAction";
+import CartItem from "../components/CartItem";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(Action.getingdata());
+  }, [dispatch]);
+  const data = useSelector((state) => state.Cart.cart);
   return (
     <View style={styles.container}>
-      <Text>Cart</Text>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={(itemData) => {
+          return (
+            <CartItem
+              code={itemData.item.code}
+              imageUri={itemData.item.imageUri}
+              title={itemData.item.name}
+              id={itemData.item.id}
+            />
+          );
+        }}
+      />
     </View>
   );
 };
