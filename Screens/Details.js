@@ -1,16 +1,17 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  ScrollView,
-} from "react-native";
-import { useSelector } from "react-redux";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
+import { useDispatch } from "react-redux";
+import * as Action from "../store/Action/CartAction";
 
 const Details = (props) => {
   const name = props.route.params;
+  const dispatch = useDispatch();
+  const cart = {
+    imageUri: name.itemImage,
+    code: name.itemCode,
+    name: name.itemName,
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -34,7 +35,13 @@ const Details = (props) => {
           color="aqua"
           onPress={() => props.navigation.popToTop()}
         />
-        <Button title="ADD To Cart" color="aqua" />
+        <Button
+          title="ADD To Cart"
+          color="aqua"
+          onPress={() => {
+            dispatch(Action.putingdata(cart));
+          }}
+        />
       </View>
     </View>
   );

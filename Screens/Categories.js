@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
-import { CATEGORIES } from "../data/dummyData";
 import Header from "../components/HeaderSuggestion";
 import { useSelector, useDispatch } from "react-redux";
-import * as Action from "../store/Action/Action";
 import Cat from "../components/SubCategories";
 
 const Categories = (props) => {
