@@ -12,7 +12,6 @@ init()
   .then(() => console.log("initialized database"))
   .catch((er) => {
     console.log("database not initialized");
-    console.log(er);
   });
 
 const fonts = async () => {
